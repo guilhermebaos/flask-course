@@ -17,3 +17,10 @@ This mode refreshes the content of our app everytime we make a change in the sou
 
 # 2. Styling and Templates
 We can create template pages by creating a `template` directory and storing our HTML files in there.
+
+## Sending Data to Templates using Jinja
+We can send data to our templates by passing additional optional arguments to the `render_template` function.
+
+This can then be accessed in our template using the Jinja templating engine [Jinja Website](https://jinja.palletsprojects.com/en/3.1.x/). Also read [this primer](https://realpython.com/primer-on-jinja-templating/) on how to use Jinja!
+
+We can also use this method to pass variables from Python to Javascript, as described in [this article](https://thewebdev.info/2022/04/03/how-to-pass-variables-from-python-flask-to-javascript/).
