@@ -31,5 +31,8 @@
 {% endblock %}
 
 {% block scripts %}
+    <script>
+        let lists_url = "{{ url_for('lists') }}"
+    </script>
     <script defer src="{{ url_for('static', filename='lists.js') }}"></script>
 {% endblock %}

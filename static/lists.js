@@ -5,7 +5,7 @@ $(document).ready(function() {
 
         $.ajax({
             // url to send the request to (root address)
-            url: "",
+            url: lists_url,
 
             // type of the request
             type: "get",
@@ -29,7 +29,7 @@ $(document).ready(function() {
     // Event when we click on <li> inside #left-list
     $("#left-list").on("click", "li", () => {
         $.ajax({
-            url: "",
+            url: lists_url,
             type: "post",
             contentType: "application/json",
             data: JSON.stringify({
