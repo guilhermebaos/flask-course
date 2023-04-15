@@ -1,7 +1,12 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 
 app = Flask(__name__)
 print(app)
+
+
+import json
+from time import time
+
 
 
 # Returns a rendered template from a HTML file
@@ -37,6 +42,27 @@ def user(usr):
     return f"<h1>Hello, {usr}!</h1>"
 
 
-@app.route("/lists")
+@app.route("/lists", methods=["GET", "POST"])
 def lists():
-    return render_template("lists.html")
+    # Returns True if the request is AJAX (because we set contentType: "application/json")
+    if request.is_json:
+
+        if request.method == "GET":
+
+            # Get an element of the data sent
+            text = request.args["button_text"]
+            
+            seconds = time()
+            return jsonify({"seconds": seconds})
+        
+        elif request.method == "POST":
+
+            # Because we don't have a form Flask stores the data in the .data attribute and we have to parse it into JSON
+            card_text = json.loads(request.data).get("text")
+
+            new_text = f"I got {card_text}"
+
+            return jsonify({"data": new_text})
+
+    else:
+        return render_template("lists.html")
