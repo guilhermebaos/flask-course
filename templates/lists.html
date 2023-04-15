@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+    Lists Page
+{% endblock %}
+
+{% block content %}
+    <!-- Action is the URL the form redirects to after submission -->
+    <!-- Method is get if we get information from the server and post if we send information to the server -->
+    <div class="container">
+        <form action="#" method="post">
+            <div class="row">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="row">
+                <input type="submit" name="submit" id="submit">
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        {% if usr: %}
+            <p>Hello, {{ usr }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
