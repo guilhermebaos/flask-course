@@ -66,3 +66,9 @@ def lists():
 
     else:
         return render_template("lists.html")
+
+
+# Based on this video: https://www.youtube.com/watch?v=xJAfLdUgdc4&list=PLjcjAqAnHd1EIxV4FSZIiJZvsdrBc1Xho
+@app.route("/three")
+def three():
+    return render_template("three.html")
